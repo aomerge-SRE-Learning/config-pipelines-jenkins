@@ -1,0 +1,33 @@
+app:
+  name: aut-jwt-angular
+deployment:
+  name: aut-jwt-angular
+  replicas: 2
+container:
+  name: angular-app
+  image: localhost/angular:1.0
+  port: 80
+probe:
+  path: /aut-jwt-angular/
+  liveness:
+    initialDelaySeconds: 30
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 3
+  readiness:
+    initialDelaySeconds: 10
+    periodSeconds: 5
+    timeoutSeconds: 3
+    failureThreshold: 3
+resources:
+  requests:
+    memory: "128Mi"
+    cpu: "100m"
+  limits:
+    memory: "256Mi"
+    cpu: "200m"
+service:
+  name: aut-jwt-angular-service
+  type: ClusterIP
+  port: 80
+  targetPort: 80
