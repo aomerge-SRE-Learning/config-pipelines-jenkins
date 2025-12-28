@@ -5,7 +5,7 @@ deployment:
   replicas: 2
 container:
   name: angular-app
-  image: localhost/angular:1.0
+  image: angel5572/angular-proyect:0.0.0-20251228.65
   port: 80
 probe:
   path: /aut-jwt-angular/
