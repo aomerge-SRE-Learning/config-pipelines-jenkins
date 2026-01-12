@@ -22,6 +22,7 @@ resources:
     memory: "256Mi"
     cpu: "200m"
 service:
+  name: angular-proyect
   type: ClusterIP
   port: 80
   targetPort: 80
