@@ -1,0 +1,25 @@
+# Configuración específica del Ingress
+app:
+  name: ingress-test-jenkins # Debe coincidir con values-service.yaml
+
+ingress:
+  enabled: true
+  hosts:        
+    - paths:
+        - path: /angular-proyect/
+          pathType: Prefix
+          service:
+            name: angular-proyect
+            port: 80
+  
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  ingressClassName: nginx
+  
+  tls:
+    enabled: false
+    hosts: []
+    # - secretName: mi-app-tls
+    #   hostnames:
+    #     - mi-app.local
+    #     - api.local
