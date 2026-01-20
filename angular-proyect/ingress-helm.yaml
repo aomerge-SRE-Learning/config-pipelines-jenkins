@@ -1,0 +1,28 @@
+# Configuración específica del Ingress para angular-proyect
+app:
+  name: angular-proyect
+
+ingress:
+  enabled: true
+  hosts:
+    - host: app.local
+      paths:
+        - path: /
+          pathType: Prefix
+          service:
+            name: angular-proyect-service
+            port: 80
+
+  annotations: {}
+    # nginx.ingress.kubernetes.io/rewrite-target: /$2
+    # nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    # nginx.ingress.kubernetes.io/use-regex: "true"
+
+  ingressClassName: nginx
+
+  tls:
+    enabled: false
+    hosts: []
+    # - secretName: angular-proyect-tls
+    #   hostnames:
+    #     - app.local
