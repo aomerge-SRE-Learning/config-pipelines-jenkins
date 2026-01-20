@@ -1,14 +1,9 @@
-app:
-  name: aut-jwt-angular
 deployment:
-  name: aut-jwt-angular
   replicas: 2
 container:
   name: angular-app
-  image: angel5572/angular-proyect:0.0.0-20251228.65
   port: 80
 probe:
-  path: /aut-jwt-angular/
   liveness:
     initialDelaySeconds: 30
     periodSeconds: 10
@@ -27,7 +22,6 @@ resources:
     memory: "256Mi"
     cpu: "200m"
 service:
-  name: aut-jwt-angular-service
   type: ClusterIP
   port: 80
   targetPort: 80
